@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
-
+import{Ng2PaginationModule} from 'ng2-pagination';
 import { LoginModule } from './login/login.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
@@ -21,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
 		RouterModule.forRoot(routes),
 		LoginModule,
 		DashboardModule,
+		Ng2PaginationModule,
 		SharedModule.forRoot()
 	],
 	declarations: [AppComponent],

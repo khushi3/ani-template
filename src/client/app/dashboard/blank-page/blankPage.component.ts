@@ -6,10 +6,4 @@ import { Component } from '@angular/core';
     templateUrl: './blank-page.component.html'
 })
 
-export class BlankPageComponent {
-public items:any;
-
-	 constructor() { 
-    this.items = ['First', 'Second', 'Third'];
-  }
-}
+export class BlankPageComponent {}

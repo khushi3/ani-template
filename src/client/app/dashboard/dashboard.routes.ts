@@ -13,7 +13,8 @@ export const DashboardRoutes: Route[] = [
     	children: [
 	    	...HomeRoutes,
 	    	...BSComponentRoutes,
-	    	...BlankPageRoutes
+	    	...BlankPageRoutes,
+
     	]
   	}
 ];
