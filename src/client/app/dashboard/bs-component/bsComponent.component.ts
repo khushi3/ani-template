@@ -2,6 +2,7 @@
 import {Component,ChangeDetectionStrategy,Input} from '@angular/core';
 import {PaginationInstance} from 'ng2-pagination';
 import {PaginationService} from './pagination.service';
+import {UsersService} from './users.service';
 
 
 @Component({
@@ -10,21 +11,20 @@ selector: 'bs-component',
 styleUrls: ['pagination.css'],
 templateUrl: 'bscomponent.html',
 changeDetection: ChangeDetectionStrategy.OnPush,
-providers: [PaginationService],
-
-		
 })
 
 
 export class  BSComponentComponent{
 
 	items: string[]=[];
-
-	 
 	public maxSize:number;
 	public directionLinks: boolean=true;
 	public autoHide:boolean=false;
 	public tableData: any[];
+   newUser= {
+    username: '',
+    password: ''
+  }
 
    public config: PaginationInstance = {
    	id: 'advanced',
@@ -50,7 +50,7 @@ export class  BSComponentComponent{
     	this.popped.push(this.items.pop());
     }
 
-	constructor(private _paginationservice: PaginationService) {
+	constructor(private _paginationservice: PaginationService,private userservice: UsersService) {
 
 		console.log("hello");
 		this._paginationservice.getData().subscribe(data => {
@@ -58,9 +58,11 @@ export class  BSComponentComponent{
      console.log("values"+this.tableData);
 
     }, error => console.log('Could not load List of Service'));
-		// code...
 
 		 
 	}
+   addUser() {
+    this.userservice.addNew(this.newUser);
+  }
 
 }

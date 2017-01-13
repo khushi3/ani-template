@@ -22,30 +22,35 @@
 </div>
 
 <table class="table" border="3">
-<thead>
-    <tr>
-        <th>HOST</th>
-        <th>CLIENT</th>
-        <th>REQUEST</th>
-        <th>STATUS</th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor= "let item of tableData  | paginate: config">
-       <td class="col-xs-2"> {{ item.host }}</td>
-       <td class="col-xs-4"> {{ item.client }}</td>
-       <td class="col-xs-6"> {{ item.request }}</td>
-       <td class="col-xs-2"> {{item.status}}</td>
+    <thead>
+        <tr>
+            <th>HOST</th>
+            <th>CLIENT</th>
+            <th>REQUEST</th>
+            <th>STATUS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let item of tableData  | paginate: config">
+         <td > {{ item.host }}</td>
+         <td > {{ item.client }}</td>
+         <td > {{ item.request }}</td>
+         <td > {{item.status}}</td>
 
-    </tr></tbody>
-</table>
-<div class="has-text-centered">
+     </tr></tbody>
+ </table>
+ <div class="has-text-centered">
     <pagination-controls
-                [id]="config.id"
-                [maxSize]="config.maxSize"
-                (pageChange)="onPageChange($event)"
-                directionLinks="true">
+    [id]="config.id"
+    [maxSize]="config.maxSize"
+    (pageChange)="onPageChange($event)"
+    directionLinks="true">
     
-    </pagination-controls>
+</pagination-controls>
 </div>
 
+<div class="form-group">
+    <div class="col-md-8">
+        <button type="button" class="btn btn-raised btn-primary" (click)="addUser()">SEND EMAIL</button>
+    </div>
+</div>
